@@ -9,7 +9,7 @@ import org.objectweb.asm.ClassWriter
  * Date:2018.01.08
  * Des:修改字节码
  */
-public class AutoModify {
+class AutoModify {
 
     static byte[] modifyClasses(String className, byte[] srcByteCode) {
         byte[] classBytesCode = null

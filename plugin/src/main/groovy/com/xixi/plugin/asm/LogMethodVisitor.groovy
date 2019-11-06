@@ -10,7 +10,7 @@ import org.objectweb.asm.commons.AdviceAdapter
 /**
  * 针对日志采集sdk埋点的方法进行修改
  */
-public class LogMethodVisitor extends AdviceAdapter {
+class LogMethodVisitor extends AdviceAdapter {
 
     public HashSet<String> visitedFragMethods
     String methodName
@@ -21,7 +21,7 @@ public class LogMethodVisitor extends AdviceAdapter {
     String className
     String[] interfaces
 
-    public LogMethodVisitor(MethodVisitor methodVisitor, int access, String name, String desc,
+    LogMethodVisitor(MethodVisitor methodVisitor, int access, String name, String desc,
                             String superName, String className, String[] interfaces, HashSet<String> visitedFragMethods) {
         super(Opcodes.ASM6, methodVisitor, access, name, desc)
         this.methodName = name

@@ -7,18 +7,18 @@ import org.gradle.api.Project
 /**
  * 全局配置类
  */
-public class GlobalConfig {
+class GlobalConfig {
 
     private static Project project
     private static List<AutoClassFilter> autoClassFilter
     private static HashSet<String> exclude
     private static HashSet<String> include
 
-    public static void setProject(Project project) {
+    static void setProject(Project project) {
         GlobalConfig.@project = project
     }
 
-    public static Project getProject() {
+    static Project getProject() {
         return project
     }
 

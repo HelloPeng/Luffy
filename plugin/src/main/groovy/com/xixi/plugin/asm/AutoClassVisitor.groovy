@@ -18,7 +18,7 @@ import com.xixi.plugin.util.LogAnalyticsUtil
  *      1、类要匹配
  *      2、方法匹配
  */
-public class AutoClassVisitor extends ClassVisitor {
+class AutoClassVisitor extends ClassVisitor {
 
     private HashSet<String> visitedFragMethods = new HashSet<>()
 

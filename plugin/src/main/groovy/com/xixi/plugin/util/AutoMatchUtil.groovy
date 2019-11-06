@@ -9,7 +9,7 @@ import com.xixi.plugin.bean.AutoClassFilter
  * Date :2018-12-04
  * Des :目标匹配
  */
-public class AutoMatchUtil {
+class AutoMatchUtil {
 
     /**
      * 是否对扫描类进行修改

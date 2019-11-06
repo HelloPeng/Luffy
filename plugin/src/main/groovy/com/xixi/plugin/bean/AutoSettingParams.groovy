@@ -3,7 +3,7 @@ package com.xixi.plugin.bean
 /**
  * 用于build.gradle中的参数传递
  */
-public class AutoSettingParams {
+class AutoSettingParams {
 
     String name = 'Luffy字节码插件'
     /**

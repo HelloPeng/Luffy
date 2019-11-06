@@ -21,7 +21,7 @@ import java.util.zip.ZipEntry
 /**
  * 自动埋点追踪，遍历所有文件更换字节码
  */
-public class AutoTransform extends Transform {
+class AutoTransform extends Transform {
 
     private static final String VERSION = "v1.0.3"
 
@@ -80,7 +80,7 @@ public class AutoTransform extends Transform {
     }
 
     @Override
-    public void transform(
+    void transform(
             @NonNull Context context,
             @NonNull Collection<TransformInput> inputs,
             @NonNull Collection<TransformInput> referencedInputs,

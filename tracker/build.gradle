@@ -18,9 +18,9 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    provided 'com.android.support:appcompat-v7:28.0.0'
-    compile 'com.alibaba:fastjson:1.2.8'
-    provided 'com.android.support:recyclerview-v7:28.0.0'
-    provided 'com.android.support:design:28.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.alibaba:fastjson:1.2.8'
+    api 'com.android.support:recyclerview-v7:28.0.0'
+    api 'com.android.support:design:28.0.0'
 }

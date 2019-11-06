@@ -3,7 +3,7 @@ package com.xixi.plugin.util
 import jdk.internal.org.objectweb.asm.Opcodes
 import org.objectweb.asm.MethodVisitor
 
-public class LogAnalyticsUtil implements Opcodes {
+class LogAnalyticsUtil implements Opcodes {
     private static final HashSet<String> targetFragmentClass = new HashSet()
     private static final HashSet<String> targetMenuMethodDesc = new HashSet()
 

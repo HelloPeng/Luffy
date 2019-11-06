@@ -1,6 +1,6 @@
 package com.xixi.plugin.bean
 
-public class LogMethodCell {
+class LogMethodCell {
     // 原方法名
     String name
     // 原方法描述

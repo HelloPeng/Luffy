@@ -6,7 +6,7 @@ import jdk.internal.org.objectweb.asm.Opcodes
 /**
  * 针对日志采集系统进行专门配置
  */
-public class LogHookConfig {
+class LogHookConfig {
 
     /**
      * 日志采集埋点入口类

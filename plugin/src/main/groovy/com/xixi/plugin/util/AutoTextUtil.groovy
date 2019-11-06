@@ -1,7 +1,7 @@
 package com.xixi.plugin.util
 
 
-public class AutoTextUtil {
+ class AutoTextUtil {
     static boolean isEmpty(String text) {
         return text == null || text.trim().length() < 1
     }

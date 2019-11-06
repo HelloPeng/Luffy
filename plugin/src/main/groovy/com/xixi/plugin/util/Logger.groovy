@@ -3,7 +3,7 @@ package com.xixi.plugin.util
 
 import java.lang.reflect.Array
 
-public class Logger {
+class Logger {
     private static boolean isDebug = true
     public static HashMap<Integer, String> accCodeMap = new HashMap<>()
     public static HashMap<Integer, String> opCodeMap = new HashMap<>()
