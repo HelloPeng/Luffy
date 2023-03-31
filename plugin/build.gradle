@@ -19,14 +19,14 @@ sourceCompatibility = JavaVersion.VERSION_1_7
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    compile 'org.ow2.asm:asm:6.0'
-    compile 'org.ow2.asm:asm-commons:6.0'
-    compile 'com.android.tools.build:gradle:3.0.0'
+    implementation 'org.ow2.asm:asm:7.1'
+    implementation 'org.ow2.asm:asm-commons:7.1'
+    implementation 'com.android.tools.build:gradle:3.2.0'
 }
 
 // 本地调试
 def groupId = 'oms.mmc'
-version = '1.0.3'
+version = '1.0.4'
 def artifactId = 'autotrack-gradle-plugin'
 //是否提交到仓库
 def uploadDataGatherSdk = false
@@ -47,6 +47,11 @@ if (!uploadDataGatherSdk) {
         }
     }
 }
+
+ext.ARTIFACT_ID = artifactId
+ext.GROUP_ID = groupId
+ext.VERSION = version + 'alpha10'
+apply from: 'http://192.168.249.8:8443/pack/pack-upload-jar.gradle'
 
 // 提交到服务器maven库
 if (uploadDataGatherSdk) {

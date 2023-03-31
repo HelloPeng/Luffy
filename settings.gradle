@@ -1,1 +1,3 @@
-include ':plugin', ':annotation', ':logapp', ':tracker'
+include ':plugin', ':annotation',  ':tracker'
+include ':KotlinTest'
+//include ':logapp'

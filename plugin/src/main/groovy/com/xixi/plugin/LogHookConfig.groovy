@@ -127,16 +127,16 @@ class LogHookConfig {
         sInterfaceMethods.put('onNavigationItemSelected(Landroid/view/MenuItem;)Z', new LogMethodCell(
                 'onNavigationItemSelected',
                 '(Landroid/view/MenuItem;)Z',
-                'android/support/design/widget/NavigationView$OnNavigationItemSelectedListener',
+                'com/google/android/material/navigation/NavigationView$OnNavigationItemSelectedListener',
                 'trackMenuItem',
                 '(Ljava/lang/Object;Landroid/view/MenuItem;)V',
                 0, 2,
                 [Opcodes.ALOAD, Opcodes.ALOAD]))
 
-        sInterfaceMethods.put('onTabSelected(Landroid/support/design/widget/TabLayout$Tab;)V', new LogMethodCell(
+        sInterfaceMethods.put('onTabSelected(Lcom/google/android/material/tabs/TabLayout$Tab;)V', new LogMethodCell(
                 'onTabSelected',
-                '(Landroid/support/design/widget/TabLayout$Tab;)V',
-                'android/support/design/widget/TabLayout$OnTabSelectedListener',
+                '(Lcom/google/android/material/tabs/TabLayout$Tab;)V',
+                'com/google/android/material/tabs/TabLayout$OnTabSelectedListener',
                 'trackTabLayoutSelected',
                 '(Ljava/lang/Object;Ljava/lang/Object;)V',
                 0, 2,
@@ -273,16 +273,16 @@ class LogHookConfig {
         sLambdaMethods.put('(Landroid/view/MenuItem;)Z', new LogMethodCell(
                 'onNavigationItemSelected',
                 '(Landroid/view/MenuItem;)Z',
-                'android/support/design/widget/NavigationView$OnNavigationItemSelectedListener',
+                'com/google/android/material/navigation/NavigationView$OnNavigationItemSelectedListener',
                 'trackMenuItem',
                 '(Ljava/lang/Object;Landroid/view/MenuItem;)V',
                 0, 2,
                 [Opcodes.ALOAD, Opcodes.ALOAD]))
 
-        sLambdaMethods.put('(Landroid/support/design/widget/TabLayout$Tab;)V', new LogMethodCell(
+        sLambdaMethods.put('(Lcom/google/android/material/tabs/TabLayout$Tab;)V', new LogMethodCell(
                 'onTabSelected',
-                '(Landroid/support/design/widget/TabLayout$Tab;)V',
-                'android/support/design/widget/TabLayout$OnTabSelectedListener',
+                '(Lcom/google/android/material/tabs/TabLayout$Tab;)V',
+                'com/google/android/material/tabs/TabLayout$OnTabSelectedListener',
                 'trackTabLayoutSelected',
                 '(Ljava/lang/Object;Ljava/lang/Object;)V',
                 0, 2,

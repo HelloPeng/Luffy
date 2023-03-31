@@ -23,7 +23,7 @@ import java.util.zip.ZipEntry
  */
 class AutoTransform extends Transform {
 
-    private static final String VERSION = "v1.0.3"
+    private static final String VERSION = "v1.0.4"
 
     @Override
     String getName() {

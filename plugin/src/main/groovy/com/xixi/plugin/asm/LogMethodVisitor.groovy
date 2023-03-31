@@ -22,8 +22,8 @@ class LogMethodVisitor extends AdviceAdapter {
     String[] interfaces
 
     LogMethodVisitor(MethodVisitor methodVisitor, int access, String name, String desc,
-                            String superName, String className, String[] interfaces, HashSet<String> visitedFragMethods) {
-        super(Opcodes.ASM6, methodVisitor, access, name, desc)
+                     String superName, String className, String[] interfaces, HashSet<String> visitedFragMethods) {
+        super(Opcodes.ASM5, methodVisitor, access, name, desc)
         this.methodName = name
         this.access = access
         this.methodVisitor = methodVisitor
@@ -32,7 +32,7 @@ class LogMethodVisitor extends AdviceAdapter {
         this.className = className
         this.interfaces = interfaces
         this.visitedFragMethods = visitedFragMethods
-        Logger.info("||开始扫描方法：${Logger.accCode2String(access)} ${methodName}${desc}")
+        //Logger.info("||开始扫描方法：${Logger.accCode2String(access)} ${methodName}${desc}")
     }
 
     boolean isAutoTrackViewOnClickAnnotation = false
@@ -47,7 +47,7 @@ class LogMethodVisitor extends AdviceAdapter {
             visitAnnotation("Lcom/codeless/tracker/annotation/AutoDataInstrumented;", false)
             Logger.info("||Hooked method: ${methodName}${methodDesc}")
         }
-        Logger.info("||结束扫描方法：${methodName}")
+        // Logger.info("||结束扫描方法：${methodName}")
     }
 
     @Override
@@ -71,6 +71,30 @@ class LogMethodVisitor extends AdviceAdapter {
                 LogAnalyticsUtil.visitMethodWithLoadedParams(methodVisitor, Opcodes.INVOKESTATIC, LogHookConfig.LOG_ANALYTICS_BASE,
                         logMethodCell.agentName, logMethodCell.agentDesc,
                         paramStart, logMethodCell.paramsCount, logMethodCell.opcodes)
+                isHasTracked = true
+                return
+            }
+        }
+        /**
+         * kotlin Lambda表达式
+         */
+        if (methodName.trim().contains('$lambda-') && LogAnalyticsUtil.isPrivate(access)) {
+            def classNameDl = "L" + className + ";"
+
+            LogMethodCell logMethodCell = LogHookConfig.sLambdaMethods.get(methodDesc.replace(classNameDl, ""))
+            if (logMethodCell != null) {
+                int paramStart = logMethodCell.paramsStart
+                if (LogAnalyticsUtil.isStatic(access)) {
+                    paramStart = paramStart - 1
+                }
+                Type[] argsTypes = Type.getArgumentTypes(methodDesc)
+                if (argsTypes != null) {
+                    if (argsTypes[0].toString() == classNameDl) {
+                        paramStart += 1
+                    }
+                }
+                LogAnalyticsUtil.visitMethodWithLoadedParams(methodVisitor, Opcodes.INVOKESTATIC, LogHookConfig.LOG_ANALYTICS_BASE
+                        , logMethodCell.agentName, logMethodCell.agentDesc, paramStart, logMethodCell.paramsCount, logMethodCell.opcodes)
                 isHasTracked = true
                 return
             }

@@ -29,7 +29,7 @@ class AutoClassVisitor extends ClassVisitor {
     private ClassVisitor classVisitor
 
     AutoClassVisitor(final ClassVisitor classVisitor) {
-        super(Opcodes.ASM6, classVisitor)
+        super(Opcodes.ASM7, classVisitor)
         this.classVisitor = classVisitor
     }
 
@@ -52,10 +52,10 @@ class AutoClassVisitor extends ClassVisitor {
         mClassName = name
         mInterfaces = interfaces
         mSuperName = superName
-        // 打印调试信息
+     /*   // 打印调试信息
         Logger.info("\n||---开始扫描类：${mClassName}")
         Logger.info("||---类详情：version=${version};\taccess=${Logger.accCode2String(access)};\tname=${name};\tsignature=${signature};\tsuperName=${superName};\tinterfaces=${interfaces.toArrayString()}")
-
+*/
         super.visit(version, access, name, signature, superName, interfaces)
     }
 
@@ -138,7 +138,7 @@ class AutoClassVisitor extends ClassVisitor {
                 mv.visitAnnotation("Lcom/codeless/tracker/annotation/AutoDataInstrumented;", false)
             }
         }
-        Logger.info("||---结束扫描类：${mClassName}\n")
+        /*Logger.info("||---结束扫描类：${mClassName}\n")*/
         super.visitEnd()
     }
 

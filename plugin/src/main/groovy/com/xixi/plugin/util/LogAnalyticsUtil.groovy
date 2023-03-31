@@ -2,6 +2,7 @@ package com.xixi.plugin.util
 
 import jdk.internal.org.objectweb.asm.Opcodes
 import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Type
 
 class LogAnalyticsUtil implements Opcodes {
     private static final HashSet<String> targetFragmentClass = new HashSet()
@@ -59,7 +60,8 @@ class LogAnalyticsUtil implements Opcodes {
     }
 
 
-    static void visitMethodWithLoadedParams(MethodVisitor methodVisitor, int opcode, String owner, String methodName, String methodDesc, int start, int count, List<Integer> paramOpcodes) {
+    static void visitMethodWithLoadedParams(MethodVisitor methodVisitor, int opcode, String owner, String methodName, String methodDesc,
+                                            int start, int count, List<Integer> paramOpcodes) {
         for (int i = start; i < start + count; i++) {
             methodVisitor.visitVarInsn(paramOpcodes[i - start], i)
         }

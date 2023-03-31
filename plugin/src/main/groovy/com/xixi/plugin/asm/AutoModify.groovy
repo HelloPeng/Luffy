@@ -14,6 +14,23 @@ class AutoModify {
     static byte[] modifyClasses(String className, byte[] srcByteCode) {
         byte[] classBytesCode = null
         try {
+            if ((!className.contains(".") && !className.contains('$')) || className.contains("META-INF")) {
+                println("当前属于要扫描的不属于类，不执行---->>>className = $className")
+                return
+            }
+            if (className.startsWith('kotlin') || className.contains("jetbrains") || className.contains("java") || className.contains("javax")) {
+                println("当前属于系统类，不执行---->>>className = $className")
+                return
+            }
+            if (className.contains("com.xixi.plugin")){
+                println("插件所属跳过不执行------>>>>className = $className")
+                return
+            }
+            if (className.contains('intellij') || className.contains('jetbrains') ){
+                println("包含系统包名的不执行------>>>>className = $className")
+                return
+            }
+            println("需要插桩的--------->>>>ClassName = $className")
             classBytesCode = modifyClass(srcByteCode)
             //调试模式下再遍历一遍看修改的方法情况
 //            if (Logger.isDebug()) {
